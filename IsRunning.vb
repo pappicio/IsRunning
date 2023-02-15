@@ -18,6 +18,7 @@ Public Class isrunning
         NotifyIconx.Visible = True
 
         If IsUserAdmin() = True Then
+            MsgBox("Sono stato eseguito con diritti amministratore: creo shurtcut a esecuzione automatica per tutti gli utenti!!!")
             CreateShortCut4all()
         End If
     End Sub
@@ -153,11 +154,7 @@ Public Class isrunning
                 Dim processes As New Process()
                 Dim runningProcesses As Process() = Process.GetProcesses()
 
-                If proc.ProcessName.ToLower = "mipgwebfirm" And TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Checked = True Then
-                    killaexe()
-                    ce = True
-                    Exit For
-                End If
+
                 Dim CurrentSessionID As Integer = Process.GetCurrentProcess.SessionId
                 If proc.SessionId = CurrentSessionID And proc.ProcessName.ToLower = fileName.Substring(0, fileName.LastIndexOf("."c)).ToLower Then
                     ce = True
@@ -187,34 +184,7 @@ Public Class isrunning
         End If
     End Sub
 
-    Private Sub NotifyIconx_MouseClick(sender As Object, e As MouseEventArgs) Handles NotifyIconx.MouseClick
-        If e.Button = MouseButtons.Right Then
-            ContextMenuStrip1.Show()
-        End If
-    End Sub
 
-    Private Sub TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Click
-        If TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Checked Then
-            TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Checked = False
-            Timer1_Tick(Nothing, Nothing)
-        Else
-            killaexe
-            TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Checked = True
-        End If
-    End Sub
 
-    Public Sub killaexe()
-
-        For Each process As Process In Process.GetProcesses()
-            Try
-                If Operators.CompareString(process.ProcessName.ToLower(), "mipgwebfirm", False) = 0 Then
-                    process.Kill()
-                End If
-            Catch ex As Exception
-
-            End Try
-        Next
-
-    End Sub
 
 End Class

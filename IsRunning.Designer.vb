@@ -26,9 +26,6 @@ Partial Class isrunning
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(isrunning))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.NotifyIconx = New System.Windows.Forms.NotifyIcon(Me.components)
-        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Timer1
@@ -39,25 +36,11 @@ Partial Class isrunning
         'NotifyIconx
         '
         Me.NotifyIconx.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info
-        Me.NotifyIconx.BalloonTipText = "Verifica che alcune app siano in esecuzione, in caso contrario, le esegue." & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Check" &
-    " di verifica: ogni 10 secondi."
+        Me.NotifyIconx.BalloonTipText = "Verifica app ogni 10 secondi."
         Me.NotifyIconx.BalloonTipTitle = "Is Running"
-        Me.NotifyIconx.ContextMenuStrip = Me.ContextMenuStrip1
         Me.NotifyIconx.Icon = CType(resources.GetObject("NotifyIconx.Icon"), System.Drawing.Icon)
         Me.NotifyIconx.Text = "IsRunning"
         Me.NotifyIconx.Visible = True
-        '
-        'ContextMenuStrip1
-        '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem})
-        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(392, 26)
-        '
-        'TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem
-        '
-        Me.TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Name = "TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem"
-        Me.TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Size = New System.Drawing.Size(391, 22)
-        Me.TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem.Text = "Tieni Chiuso Mipg web Firm (per Firmare con vecchio Mipg)"
         '
         'isrunning
         '
@@ -72,13 +55,10 @@ Partial Class isrunning
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "IsRunning"
         Me.WindowState = System.Windows.Forms.FormWindowState.Minimized
-        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents Timer1 As Timer
     Friend WithEvents NotifyIconx As NotifyIcon
-    Friend WithEvents ContextMenuStrip1 As ContextMenuStrip
-    Friend WithEvents TieniChiusoMipgWebFirmperFirmareConVecchioMipgToolStripMenuItem As ToolStripMenuItem
 End Class
